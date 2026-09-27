@@ -1,0 +1,79 @@
+{
+  "version": "0.2.0b1",
+  "workflow": "https://github.com/chris20011026/insar-arm/actions/runs/36342759478",
+  "platform": "macOS-14.8.9-arm64-arm-64bit",
+  "created_at": "2026-09-27T19:02:35.905948+00:00",
+  "passed": true,
+  "checks": [
+    {
+      "name": "environment",
+      "status": "PASS"
+    },
+    {
+      "name": "imports",
+      "status": "PASS"
+    },
+    {
+      "name": "topsApp",
+      "status": "PASS"
+    },
+    {
+      "name": "alos2App",
+      "status": "PASS"
+    },
+    {
+      "name": "stripmapApp",
+      "status": "PASS"
+    },
+    {
+      "name": "topsStack",
+      "status": "PASS"
+    },
+    {
+      "name": "alosStack",
+      "status": "PASS"
+    },
+    {
+      "name": "stripmapStack",
+      "status": "PASS"
+    },
+    {
+      "name": "shell-selectors",
+      "status": "PASS"
+    },
+    {
+      "name": "generator",
+      "status": "PASS"
+    },
+    {
+      "name": "kernels",
+      "status": "PASS"
+    },
+    {
+      "name": "plotting",
+      "status": "PASS"
+    },
+    {
+      "name": "mintpy",
+      "status": "PASS"
+    },
+    {
+      "name": "pip-dependencies",
+      "status": "PASS"
+    },
+    {
+      "name": "architecture",
+      "status": "PASS"
+    }
+  ],
+  "kernels": "{\"multilook_max_error\": 3.8854745986083465e-08, \"snaphu_max_phase_error\": 1.9073486328125e-06}",
+  "mintpy": "{\"timeseries_max_error_m\": 9.179564060268763e-09, \"velocity_max_error_m_per_year\": 1.2934207915815676e-07}",
+  "architecture": {
+    "conda_platforms": {
+      "osx-arm64": 290,
+      "noarch": 91
+    },
+    "native_files": 1822,
+    "external_libraries": []
+  }
+}

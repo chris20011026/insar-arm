@@ -18,7 +18,9 @@ These are errors against small synthetic reference calculations, not claims of s
 
 ## Independent hosted ARM verification
 
-The `Binary environment validation` GitHub Actions workflow installs the public lock on a fresh `macos-14` ARM VM using pinned native Miniforge and uploads the full report. Consult the linked workflow run/release notes for its actual status; the existence of a workflow is not a passing result.
+**Passed on an independent GitHub-hosted ARM VM**, macOS 14.8.9: [workflow run 36342759478](https://github.com/chris20011026/insar-arm/actions/runs/36342759478). Pinned native Miniforge installed all 381 packages from public URLs, then all 15 checks passed. The audit counted 1,822 native files with no external non-system absolute library paths. Numerical errors matched the local results above. The report is attached to the workflow run; a durable summary is in `BINARY_VALIDATION.json`.
+
+This is a fresh hosted VM, not a second physical user workstation or a real SAR dataset validation.
 
 ## Scope and limitations
 
