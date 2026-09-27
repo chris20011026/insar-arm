@@ -1,0 +1,32 @@
+name: Binary environment validation
+on:
+  push:
+    branches: [stage2-conda-packages, main]
+    paths: ['locks/insar-arm-0.2.0b1-osx-arm64.lock', 'install-binary.sh', 'packaging/install_binary.py', '.github/workflows/binary-validation.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  fresh-arm-install:
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned native Miniforge
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(uname -m)" = arm64
+          curl --fail --location --retry 3 https://github.com/conda-forge/miniforge/releases/download/26.7.2-0/Miniforge3-26.7.2-0-MacOSX-arm64.sh -o "$RUNNER_TEMP/miniforge.sh"
+          echo "d70bfa2e97afcda96927c9b9ca0e2316cb7750e4ce651c94388267cbe9588711  $RUNNER_TEMP/miniforge.sh" | shasum -a 256 -c -
+          bash "$RUNNER_TEMP/miniforge.sh" -b -p "$RUNNER_TEMP/miniforge"
+      - name: Install public locked packages and run numerical validation
+        shell: bash
+        run: |
+          CONDA_EXE="$RUNNER_TEMP/miniforge/bin/conda" bash install-binary.sh --prefix "$RUNNER_TEMP/insar-arm" --output "$RUNNER_TEMP/insar-report"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: arm-macos-validation
+          path: ${{ runner.temp }}/insar-report
+          if-no-files-found: warn

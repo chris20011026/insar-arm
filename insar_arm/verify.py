@@ -162,9 +162,14 @@ test "$MAGICK_CONFIGURE_PATH" = /tmp/insar-font-restore-test
         info=json.loads((PREFIX/'share/insar-arm/build-info.json').read_text())
         external=set()
         for i in range(0,len(binaries),100):
-            result=subprocess.run(['/usr/bin/otool','-l',*binaries[i:i+100]],capture_output=True,text=True,check=True)
+            otool = PREFIX/'bin/otool'
+            tool = str(otool) if otool.exists() else '/usr/bin/otool'
+            result=subprocess.run([tool,'-l',*binaries[i:i+100]],capture_output=True,text=True,check=True)
             for kind,path in runtime_paths(result.stdout):
-                assert info['build_directory'] not in path,'A runtime load path refers to the disposable build directory.'
+                if info.get('build_directory'):
+                    assert info['build_directory'] not in path,'A runtime load path refers to the disposable build directory.'
+                if info.get('distribution') == 'conda' and path.startswith('/'):
+                    assert path.startswith((str(PREFIX)+'/', '/usr/lib/', '/System/Library/')), f'External runtime path: {path}'
                 if kind!='LC_RPATH' and path.startswith('/'):
                     if kind=='LC_LOAD_WEAK_DYLIB' and not Path(path).exists():continue
                     if not path.startswith((str(PREFIX)+'/', '/usr/lib/', '/System/Library/')):

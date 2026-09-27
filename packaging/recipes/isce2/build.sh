@@ -3,6 +3,23 @@ set -euo pipefail
 export PATH="$BUILD_PREFIX/bin:$PREFIX/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig:$PREFIX/share/pkgconfig"
 unset PYTHONPATH PYTHONHOME
+# Retain the complete upstream source/notices with the binary distribution.
+# Snapshot before CMake generates files; this list is the pinned archive's root.
+mkdir -p "$PREFIX/share/isce2"
+"$PYTHON" - <<'PYSOURCE'
+import gzip, os, tarfile
+from pathlib import Path
+names = '.circleci .cmake .gitignore CMakeLists.txt CONTRIBUTING.md LICENSE LICENSE-2.0.html LICENSE-2.0.txt README.md SConstruct __init__.py applications components configuration contrib defaults docker docs examples library license.py release_history.py release_note.txt schema scons_tools sec.lst setup test'.split()
+def normalize(info):
+    info.uid = info.gid = 0
+    info.uname = info.gname = ''
+    info.mtime = 0
+    return info
+out = Path(os.environ['PREFIX'])/'share/isce2/upstream-source.tar.gz'
+with out.open('wb') as raw, gzip.GzipFile(filename='', fileobj=raw, mode='wb', mtime=0) as gz, tarfile.open(fileobj=gz, mode='w') as tar:
+    for name in names:
+        tar.add(name, arcname='isce2-2.6.5/'+name, filter=normalize)
+PYSOURCE
 cmake -S . -B build -G Ninja \
   -DCMAKE_INSTALL_PREFIX="$PREFIX" \
   -DPYTHON_MODULE_DIR="${SP_DIR#"$PREFIX"/}" \

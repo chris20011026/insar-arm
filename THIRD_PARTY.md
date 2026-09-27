@@ -2,7 +2,9 @@
 
 This project automates existing software. It does not claim to invent ISCE2,
 MintPy, SNAPHU, or native Apple Silicon compilation of ISCE2. It does not vendor
-their source trees or compiled environments into this repository.
+their source trees or compiled environments into the source branch. The separate
+`gh-pages` branch distributes the four native Conda packages with their notices;
+release source bundles provide their corresponding upstream sources and recipes.
 
 The Apple Silicon build follows the approach documented by
 [lijun99/isce2-install](https://github.com/lijun99/isce2-install), using official
@@ -11,7 +13,7 @@ ISCE2 CMake support and existing Homebrew/MacPorts Motif patches.
 | Component | Source / attribution | License / notes |
 |---|---|---|
 | ISCE2 2.6.5 | https://github.com/isce-framework/isce2 | Upstream license notices apply; Apache-2.0 package, with third-party components retaining their notices. Public-source build uses `ISCE2_WITH_STANFORD=OFF`. |
-| MintPy 1.6.4.post3 | https://github.com/insarlab/MintPy | GPL-3.0-or-later. Exact commit and archive hash pinned. |
+| MintPy 1.6.4.post3 (stage 1), 1.6.4 (binary beta) | https://github.com/insarlab/MintPy | GPL-3.0-or-later. Stage 1 pins the upstream commit; binary beta uses the locked conda-forge package. |
 | Motif 2.3.8 | https://sourceforge.net/projects/motif/ | LGPL licensing and notices included in upstream source. |
 | Motif patches | https://github.com/Homebrew/homebrew-core and https://github.com/macports/macports-ports | Downloaded from pinned commits, retaining upstream provenance. See `locks/sources.json`. |
 | SNAPHU 2.0.7 | https://web.stanford.edu/group/radar/softwareandlinks/sw/snaphu/ | Custom Stanford terms in the upstream README. CS2 solver has separate noncommercial restrictions. The installer preserves the README under `$CONDA_PREFIX/share/snaphu`. |

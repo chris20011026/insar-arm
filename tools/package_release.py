@@ -8,12 +8,12 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 INCLUDE=('README.md','LICENSE','THIRD_PARTY.md','CHANGELOG.md','.gitignore',
-         'insar-arm','install.sh','locks','insar_arm','tests','docs','tools','.github')
+         'insar-arm','install.sh','install-binary.sh','locks','insar_arm','tests','docs','tools','packaging','.github','.gitattributes')
 
 
 def package(output):
     output.mkdir(parents=True,exist_ok=True)
-    target=output/'insar-arm-0.1.0.zip'
+    target=output/'insar-arm-0.2.0b1.zip'
     files=[]
     for name in INCLUDE:
         path=ROOT/name
@@ -27,7 +27,7 @@ def package(output):
             for marker in (b'/' + b'Users/', b'/' + b'Volumes/'):
                 if marker in content:
                     raise RuntimeError(f'Local path found in release file: {relative}')
-            entry=zipfile.ZipInfo('insar-arm-0.1.0/'+relative.as_posix(),date_time=(2026,9,27,0,0,0))
+            entry=zipfile.ZipInfo('insar-arm-0.2.0b1/'+relative.as_posix(),date_time=(2026,9,28,0,0,0))
             entry.compress_type=zipfile.ZIP_DEFLATED
             entry.create_system=3
             entry.external_attr=(stat.S_IFREG|stat.S_IMODE(path.stat().st_mode))<<16

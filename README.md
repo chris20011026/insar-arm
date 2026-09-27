@@ -1,5 +1,15 @@
 # InSAR ARM
 
+**0.2.0 beta 1：預先編譯的 Apple Silicon Conda 環境。**
+
+[免編譯安裝說明](docs/BINARY_INSTALL.md) · [English binary guide](docs/BINARY_INSTALL.en.md) · [Release](https://github.com/chris20011026/insar-arm/releases/tag/v0.2.0-beta.1)
+
+新版本不需要使用者自行編譯 ISCE2；仍屬公開測試版，尚待另一台實體 Mac 與完整真實資料流程驗證。
+
+---
+
+以下保留第一階段的原始碼安裝方式。
+
 在 Apple Silicon Mac 上建立可重建、可檢查的 InSAR Conda 環境。
 
 第一階段提供**環境配方、自動安裝工具及驗證工具**。整合 ISCE2、三種 Stack 處理器、MintPy、SNAPHU、GDAL 與 mdx 繪圖工具。沿用官方程式與社群編譯方法，不修改科學演算法。

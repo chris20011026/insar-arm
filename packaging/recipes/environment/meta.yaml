@@ -1,0 +1,41 @@
+package:
+  name: insar-arm
+  version: 0.2.0b1
+build:
+  number: 0
+  skip: true  # [not osx or not arm64]
+requirements:
+  host:
+    - python 3.12.*
+  run:
+    - python 3.12.*
+    - numpy 1.26.4
+    - scipy <1.16
+    - gdal 3.10.*
+    - isce2 2.6.5
+    - insar-arm-motif 2.3.8
+    - insar-arm-snaphu-cli 2.0.7
+    - mintpy 1.6.4
+    - cartopy
+    - cvxopt
+    - pyaps3
+    - pysolid
+    - pygrib
+    - pyresample
+    - asf_search
+    - imagecodecs 2024.9.22
+    - py-opencv 4.11.*
+    - snaphu 0.4.1
+    - imagemagick
+    - font-ttf-dejavu-sans-mono
+    - cctools
+    - pip
+test:
+  commands:
+    - test -f "$PREFIX/share/insar-arm/verify.py"
+    - test -x "$PREFIX/bin/insar-check"
+about:
+  home: https://github.com/chris20011026/insar-arm
+  license: MIT
+  license_file: LICENSE
+  summary: Apple Silicon InSAR environment integration and validation; third-party licenses apply separately

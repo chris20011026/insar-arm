@@ -6,7 +6,7 @@ source:
   url: https://codeload.github.com/isce-framework/isce2/tar.gz/b7702cfbd571681a133ebc5c3b23a10c78d52706
   sha256: 2d9cea6c200c19977e2ad725de7857edc698b10d2b9f60007d7e3d4a0ff9edda
 build:
-  number: 0
+  number: 1
   skip: true  # [not osx or not arm64 or py != 312]
 requirements:
   build:
@@ -53,8 +53,9 @@ test:
     - test -f "$PREFIX/share/isce2/alosStack/create_cmds.py"
 about:
   home: https://github.com/isce-framework/isce2
-  license: Apache-2.0
+  license: Apache-2.0 AND LicenseRef-ISCE2-Third-Party
   license_file:
     - LICENSE
     - LICENSE-2.0.txt
+    - contrib/Snaphu/include/snaphu_cs2types.h
   summary: Experimental native Apple Silicon ISCE2 package with all three Stack processors
