@@ -1,0 +1,23 @@
+package:
+  name: insar-arm-snaphu-cli
+  version: 2.0.7
+source:
+  url: https://web.stanford.edu/group/radar/softwareandlinks/sw/snaphu/snaphu-v2.0.7.tar.gz
+  sha256: c03ac126f9a964321bb5d6fb5b4004728368da268d7cb8407bb295a8abe5b262
+build:
+  number: 0
+  skip: true  # [not osx or not arm64]
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - make
+test:
+  requires:
+    - python 3.12.*
+    - numpy 1.26.*
+about:
+  home: https://web.stanford.edu/group/radar/softwareandlinks/sw/snaphu/
+  license: LicenseRef-Stanford-SNAPHU AND LicenseRef-CS2
+  license_file: README
+  summary: SNAPHU CLI with upstream CS2; noncommercial restrictions apply

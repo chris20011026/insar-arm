@@ -1,0 +1,46 @@
+package:
+  name: insar-arm-motif
+  version: 2.3.8
+source:
+  url: https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz
+  sha256: 859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7
+build:
+  number: 0
+  skip: true  # [not osx or not arm64]
+requirements:
+  build:
+    - {{ compiler('c') }}
+    - {{ stdlib('c') }}
+    - make
+    - pkg-config
+    - patch
+    - gnuconfig
+  host:
+    - xorg-xorgproto
+    - xorg-xbitmaps
+    - libiconv
+    - libexpat
+    - xorg-libx11
+    - xorg-libxt
+    - xorg-libxft
+    - xorg-libxext
+    - xorg-libxmu
+    - libjpeg-turbo
+    - libpng
+    - freetype
+    - fontconfig
+  run:
+    - xorg-libx11
+    - xorg-libxt
+    - xorg-libxft
+    - xorg-libxext
+    - xorg-libxmu
+test:
+  commands:
+    - test -f "$PREFIX/lib/libXm.dylib"
+    - test -f "$PREFIX/include/Xm/Xm.h"
+about:
+  home: https://sourceforge.net/projects/motif/
+  license: LGPL-2.1-or-later
+  license_file: COPYING
+  summary: Motif runtime and headers for experimental Apple Silicon ISCE2 packaging

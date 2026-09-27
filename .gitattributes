@@ -1,0 +1,3 @@
+# Preserve upstream patch bytes and their recorded SHA256 hashes.
+packaging/recipes/motif/*.diff -whitespace
+packaging/recipes/motif/*.patch -whitespace

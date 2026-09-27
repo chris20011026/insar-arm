@@ -1,0 +1,20 @@
+{
+  "status": "local prototype, not a published channel",
+  "artifacts": [
+    {
+      "file": "isce2-2.6.5-py312ha00381b_0.conda",
+      "sha256": "2938d92ab64369ab63cab0e54370a156fed651f00ed416ff40025214ebf47d34",
+      "bytes": 5586525
+    },
+    {
+      "file": "insar-arm-motif-2.3.8-h6bc8fe7_0.conda",
+      "sha256": "95e2cc8a5b5a442dabd68bd80df61bc86eb58f3b0b5834d1a9448926768feafe",
+      "bytes": 7466127
+    },
+    {
+      "file": "insar-arm-snaphu-cli-2.0.7-h6bc8fe7_0.conda",
+      "sha256": "d82de50757ddb866f80ae271a6cbd7b7b0ba58534b9c5c5f918924df07057181",
+      "bytes": 132189
+    }
+  ]
+}
