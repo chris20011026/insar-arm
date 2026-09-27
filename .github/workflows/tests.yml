@@ -1,0 +1,13 @@
+name: Installer tests
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test safety, lifecycle, locked inputs and shell activation
+        run: python3 -m unittest discover -s tests -v
+      - name: Check shell syntax
+        run: bash -n install.sh insar-arm insar_arm/activate.sh insar_arm/deactivate.sh

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "isce2",
+    "url": "https://codeload.github.com/isce-framework/isce2/tar.gz/b7702cfbd571681a133ebc5c3b23a10c78d52706",
+    "filename": "isce2-2.6.5.tar.gz",
+    "sha256": "2d9cea6c200c19977e2ad725de7857edc698b10d2b9f60007d7e3d4a0ff9edda"
+  },
+  {
+    "name": "mintpy",
+    "url": "https://codeload.github.com/insarlab/MintPy/tar.gz/9e0d46b2593483ba89452102efd21c1575662190",
+    "filename": "mintpy-1.6.4.post3.tar.gz",
+    "sha256": "775f6ead62401353a8daa96b8134f6942e1055a3da61942c46af2d204534020b"
+  },
+  {
+    "name": "snaphu",
+    "url": "https://web.stanford.edu/group/radar/softwareandlinks/sw/snaphu/snaphu-v2.0.7.tar.gz",
+    "filename": "snaphu-2.0.7.tar.gz",
+    "sha256": "c03ac126f9a964321bb5d6fb5b4004728368da268d7cb8407bb295a8abe5b262"
+  },
+  {
+    "name": "motif",
+    "url": "https://downloads.sourceforge.net/project/motif/Motif%202.3.8%20Source%20Code/motif-2.3.8.tar.gz",
+    "filename": "motif-2.3.8.tar.gz",
+    "sha256": "859b723666eeac7df018209d66045c9853b50b4218cecadb794e2359619ebce7"
+  },
+  {
+    "name": "configure-big_sur.diff",
+    "url": "https://raw.githubusercontent.com/Homebrew/homebrew-core/d4157ea105899e48fc427dafc41f7eabafbbc9a4/Patches/libtool/configure-big_sur.diff",
+    "filename": "configure-big_sur.diff",
+    "sha256": "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+  },
+  {
+    "name": "patch-lib-xm-vendor.diff",
+    "url": "https://raw.githubusercontent.com/macports/macports-ports/8c436a9c53a7b786da8d42cda16eead0fb8733d4/x11/openmotif/files/patch-lib-xm-vendor.diff",
+    "filename": "patch-lib-xm-vendor.diff",
+    "sha256": "697ac026386dec59b82883fb4a9ba77164dd999fa3fb0569dbc8fbdca57fe200"
+  },
+  {
+    "name": "fix-anti-aliasing-performance.patch",
+    "url": "https://raw.githubusercontent.com/Homebrew/homebrew-core/d4157ea105899e48fc427dafc41f7eabafbbc9a4/Patches/openmotif/fix-anti-aliasing-performance.patch",
+    "filename": "fix-anti-aliasing-performance.patch",
+    "sha256": "12907f303766cf1601714181c6276d0ebf94d36624eb2bbd8592ec046342ed77"
+  }
+]
